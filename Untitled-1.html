@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Veena Rental System</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fff8e1;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #6d4c41;
+      color: white;
+      padding: 1.5rem 2rem;
+      text-align: center;
+    }
+
+    nav {
+      background-color: #4e342e;
+      text-align: center;
+      padding: 0.8rem 0;
+    }
+
+    nav a {
+      color: #ffffff;
+      text-decoration: none;
+      margin: 0 20px;
+      font-weight: bold;
+    }
+
+    main {
+      max-width: 600px;
+      margin: auto;
+      background-color: #ffffff;
+      margin-top: 2rem;
+      padding: 2rem;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 10px;
+    }
+
+    h2 {
+      color: #4e342e;
+    }
+
+    label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+
+    select {
+      padding: 0.5rem;
+      width: 100%;
+      margin-top: 0.5rem;
+      font-size: 1rem;
+    }
+
+    button, .rent-now {
+      background-color: #a1887f;
+      color: white;
+      border: none;
+      padding: 0.7rem 1.5rem;
+      font-size: 1rem;
+      margin-top: 1.5rem;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    button:hover, .rent-now:hover {
+      background-color: #8d6e63;
+    }
+
+    #result {
+      margin-top: 2rem;
+      font-size: 1.2rem;
+      color: #3e2723;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      margin-top: 3rem;
+      background-color: #f5f5f5;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>🎵 Veena Rental System 🎵</h1>
+    <p>Affordable, flexible rental plans</p>
+  </header>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="https://example.com/rent-veena" target="_blank">Rent Now</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <main>
+    <h2>Rent a Veena</h2>
+    <label for="hours">Select Rental Duration (in hours):</label>
+    <select id="hours">
+      <option value="">-- Select Hours --</option>
+      <!-- Options 1–10 -->
+      <script>
+        for (let i = 1; i <= 10; i++) {
+          document.write(`<option value="${i}">${i} hour(s)</option>`);
+        }
+      </script>
+    </select>
+
+    <button onclick="calculateCost()">Calculate Cost</button>
+
+    <div id="result"></div>
+
+    <a class="rent-now" href="https://example.com/rent-veena" target="_blank">Proceed to Rent</a>
+  </main>
+
+  <footer>
+    &copy; 2025 Veena Rental Services. All rights reserved.
+  </footer>
+
+  <script>
+    function calculateCost() {
+      const hours = parseInt(document.getElementById("hours").value);
+      const resultDiv = document.getElementById("result");
+
+      if (!hours || hours < 1 || hours > 10) {
+        resultDiv.textContent = "Please select a valid duration between 1 and 10 hours.";
+        return;
+      }
+
+      const pricePerHour = 11 - hours;
+      const totalCost = pricePerHour * hours;
+
+      resultDiv.textContent = `Total cost for ${hours} hour(s): $${totalCost}`;
+    }
+  </script>
+
+</body>
+</html>
